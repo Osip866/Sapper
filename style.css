@@ -1,0 +1,507 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.main {
+    background-color: #d4d6da;
+    background-image: url(images/mainSaper.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.main h1 {
+    font-family: 'Ruslan Display', cursive;
+    font-size: 12rem;
+    color: rgb(61, 8, 8);
+    --animate-duration: 3s;
+}
+
+.main button {
+    background-color: rgb(5, 199, 199);
+    ;
+    margin-left: 3vw;
+    margin-top: 2vh;
+    width: 25vw;
+    height: 10vh;
+    border-radius: 20px;
+    font-family: 'Ruslan Display', cursive;
+    font-size: 2rem;
+    vertical-align: baseline;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* --animate-duration: 2s; */
+}
+
+.start {
+    --animate-duration: 1s;
+}
+
+.start:hover {
+    background-color: cyan;
+}
+
+.settings {
+    --animate-duration: 1.5s;
+}
+
+.settings:hover {
+    background-color: cyan;
+}
+
+.record {
+    --animate-duration: 2s;
+}
+
+.record:hover {
+    background-color: cyan;
+}
+
+.regulations {
+    --animate-duration: 2.5s;
+}
+
+.regulations:hover {
+    background-color: cyan;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+.modal {
+    display: block;
+    width: 750px;
+    max-width: 100%;
+    height: 550px;
+    max-height: 100%;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    background: #86c5ff;
+    box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+    font-size: 1.1rem;
+}
+
+.modal_closed {
+    display: none;
+}
+
+.modal__header {
+    border-bottom: 1px gray solid;
+    padding: 20px 15px;
+    margin-bottom: 15px;
+}
+
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAEFCu8CAAAABGdBTUEAALGPC/xhBQAAAqpJREFUSA2tljtyFEEMhsdgHJpb2NyAxwkgcQHGHGE3Bs4B8RICV6G4ARSERH4QGaog4vF/qv7HWu3MzrqMqjR69C9puls9PV13QU9Rr13Y3Vfpf7GPxLdRROGw0hs43vHYFuM9wYAMOcbYaQ47u7fJgRMGFMkwIgyHyIDesNMgAD3dkvZDvGWPlSVUG4wxBu43h0HIGT4UO7Hv2EeoB1wCQPhYzi/i12JHSA26acWpLV96IMtDGQZU+TEDrT9qAb8lD8RnzXbwC9mL5vsjGbSvpwGnzWfB+5s8F7C/cLLSDrS8y0Ci+gbguutiBzxLYCoQkMm4D0NOD47JwVUl0Vz8U5wD38veFa8ldptDw9xpfhZvkj4JkStlnT1eoXxmMrjqHKUlYlMBsclsdg5gZWkKmgP/Q3EQi2Fgc/WNe2yH5IOKowscWDslxXV0lXF7DNiwzMEOpLLHkTHX7ECv3XKvBIH5Ll7KlOfEmIm3yAWeMEDf2Ylt+iYlv/Zz2cbR39FKdmBDeU4O5jMB7jMA0yspDp6SjunlJsE3enRROAGchFyVkzIruEmTT91cTLJ61GpyMGApfinioGwy3VxwSCcHudbS/yhUi5NzhXbl4QbJ4EVB0T65nYzF59ZyiFvMGFqNGkE0a25yg/KHuUFDkJxjB9dCAdAjHwbno0YcDP4s7KySt/dfh9RJ4gWGVsF54wgP3VMGWDKbenfl6nxYwBg/JuNjw8UwBsA/tEdyr9DU7MgVn8V9Kflj7OL8kY0tJ8nH9g9//mg7HzX2xEFzPT1g6V+pBglRZzE2+3y9ON8sJ0LnD8eXHCAus4X4QMyFt26PGAMDliPhi5A85OwvROlLtCOLdfZbXVWSi5wb0WOh+Nm7bFFiiL0S8btDc/HL80Z83hgdH2NgJukfa8ehuEonW4wAAAAASUVORK5CYII=');
+    overflow: hidden;
+    text-indent: -999em;
+    text-decoration: none;
+}
+
+.modal__close:hover {
+    background-color: #dc3545;
+    text-decoration: none;
+}
+
+.modal__content {
+    padding: 10px 15px;
+    min-height: 200px;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.startGame {
+    display: flex;
+    background-image: url(images/1111nf735-421.jpeg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+}
+
+
+.tablClass {
+    text-align: center;
+    border-radius: 10px;
+}
+
+.tablClass>tr {
+    height: 3vw;
+}
+
+.tablClass>tr>td {
+    width: 3vw;
+    border: rgba(0, 0, 0, 0.322) 1px solid;
+    border-radius: 0.5vw;
+}
+
+
+
+/* .tablClassAmateur {
+    text-align: center;
+    border-radius: 8px;
+}
+
+.tablClassAmateur>tr {
+    height: 2vw;
+}
+
+.tablClassAmateur>tr>td {
+    width: 2vw;
+    border: rgba(0, 0, 0, 0.322) 1px solid;
+    border-radius: 0.5vw;
+} */
+
+
+.field {
+    background-repeat: no-repeat;
+    position: relative;
+    top: 12vh;
+    border-radius: 70px;
+    display: flex;
+}
+
+.btn {
+    height: 3vw;
+    font-size: 24px;
+    opacity: 0%;
+    /* background-image: url(images/grass-3.png);
+    background-size: 100%; */
+}
+
+
+.buttonOne {
+    height: 3vw;
+    font-size: 24px;
+    opacity: 100%;
+}
+
+.flag {
+    height: 3vw;
+    opacity: 100%;
+    background-image: url(images/pngwing.com.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.mine {
+    height: 3vw;
+    opacity: 100%;
+    background-image: url(images/mine.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* transform: perspective(500px) rotate3d(1, 0, 0, 50deg); */
+
+}
+
+.mine2 {
+    height: 3vw;
+    opacity: 100%;
+    background-color: red;
+    background-image: url(images/mine.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.mine3 {
+    height: 3vw;
+    opacity: 100%;
+    background-image: url(images/krest.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+
+.fon {
+    position: absolute;
+    z-index: 2;
+    left: 20px;
+    top: 20px;
+}
+
+.cell {
+    background-image: url(images/kisspng-angle-square-button-cliparts-5aacd21f91d4a9.6231799415212754235973.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.cellClosedL {
+    animation: buttonL 1.5s steps(45);
+
+}
+
+@keyframes buttonL {
+    100% {
+        transform: translate3d(-400px, 120px, 150px);
+    }
+}
+
+.cellClosedR {
+    animation: buttonR 1.5s steps(45);
+}
+
+@keyframes buttonR {
+    100% {
+        transform: translate3d(400px, 120px, 150px);
+    }
+}
+
+.cellOpen {
+    font-family: 'Kalam', cursive;
+    font-size: 20px;
+}
+
+#settingsBtn {
+    position: absolute;
+    top: 10vh;
+    left: 25vw;
+    background-color: blueviolet;
+    width: 50vw;
+    height: 70vh;
+    border-radius: 20px;
+    font-family: 'Ruslan Display', cursive;
+    font-size: 2rem;
+    z-index: 50;
+}
+
+.newBtn {
+    background-color: rgb(5, 199, 199);
+    margin-left: 6vw;
+    margin-top: 2vh;
+    width: 20vw;
+    height: 7vh;
+    border-radius: 20px;
+    font-family: 'Ruslan Display', cursive;
+    font-size: 2rem;
+    vertical-align: baseline;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#settingsBtn>span {
+    position: relative;
+    top: 30px;
+    left: 30px;
+}
+
+.setButton {
+    width: 32vw;
+    position: relative;
+    top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.setButton>span{
+    font-family: 'Ruslan Display', cursive;
+    font-size: 1rem;
+    position: relative;
+    left: 15px;
+}
+
+.clock {
+    position: absolute;
+    top: 0px;
+    left: 60vw;
+    width: 450px;
+    height: 300px;
+    background-image: url(images/kisspng-dynamite-time-bomb-stock-photography-bomb-timer-5a68bd73428ea1.7580216815168136832726.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: -130px;
+}
+
+.timer {
+    position: absolute;
+    top: 23px;
+    left: 185px;
+    font-family: 'Ruslan Display', cursive;
+    font-size: 2rem;
+    z-index: 15;
+}
+
+.name {
+    display: flex;
+    position: absolute;
+    border-radius: 20px;
+    width: 50vw;
+    height: 30vh;
+    left: 25vw;
+    top: 35vh;
+    background-color: cadetblue;
+    font-family: 'Ruslan Display', cursive;
+    font-size: 2rem;
+    justify-content: center;
+    z-index: 100;
+}
+
+.name>span {
+    position: absolute;
+    top: 10px;
+}
+
+.name>input {
+    position: absolute;
+    top: 70px;
+    height: 30px;
+}
+
+.nameClosed {
+    display: none;
+}
+
+.resalt {
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    background-color: chartreuse;
+    top: 25vh;
+    left: 25vw;
+    z-index: 50;
+    border: 2px solid black;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.statistic {
+    font-family: 'Ruslan Display', cursive;
+    font-size: 1rem;
+    border: 1px solid black;
+    width: 180px;
+    height: 20px;
+}
+
+.statistic1 {
+    font-family: 'Ruslan Display', cursive;
+    font-size: 1rem;
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+}
+
+.img {
+    position: absolute;
+    width: 10vw;
+    left: 20vw;
+    top: 12vh;
+    animation-name: rot;
+    animation-duration: 5s;
+    z-index: 50;
+}
+
+@keyframes rot {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.recordId1 {
+    position: absolute;
+    left: 11vw;
+    top: 9vh;
+}
+
+li {
+    list-style-type: none;
+}
+
+td {
+    text-align: center;
+}
+
+.reset {
+    position: absolute;
+    top: 90vh;
+    width: 160px;
+    height: 30px;
+    border-radius: 5px;
+    font-family: 'Ruslan Display', cursive;
+    font-size: 2rem;
+    background-color: brown;
+}
+
+.resultBtn{
+    background-color: rgb(122, 190, 54);
+    font-family: 'Ruslan Display', cursive;
+    font-size: 1rem;
+    width: 200px;
+    height: 30px;
+    position: relative;
+    top: 5px;
+
+}
+
+#ok{
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 200px;
+    height: 30px;
+    top:20vh;
+    background-color: rgb(30, 223, 230);
+}
+#ok:hover{
+    width: 210px;
+    height: 35px;
+    background-color: rgb(99, 235, 240);
+}
+.music{
+position: absolute;
+top: 5vh;
+left: 95vw;
+width: 35px;
+height: 35px;
+background-image: url(images/noMusik.png);
+background-size: 100%;
+z-index: 500;
+}
+
+.musicPlay{
+    position: absolute;
+    top: 5vh;
+    left: 95vw;
+    width: 35px;
+    height: 35px;
+    background-image: url(images/Musik.png);
+    background-size: 100%;
+    z-index: 500;
+    }

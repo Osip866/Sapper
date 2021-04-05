@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapper</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="main" id="main">
+        <h1 class="animate__animated animate__backInRight ">САПЕР</h1>
+        <button class="animate__animated animate__backInRight start btn" href="#start" id="start">Начать
+            игру</button><br>
+        <button class="animate__animated animate__backInRight settings btn" href="#settings"
+            id="settings">Настройки</button><br>
+        <button class="animate__animated animate__backInRight record btn" href="#record" id="record">Таблица
+            рекордов</button><br>
+        <button class="animate__animated animate__backInRight regulations btn" href="#regulations"
+            id="modal-open">Правила</button>
+    </div>
+    <div class="music" id="music">
+    </div>
+
+
+
+
+    <div class="modal-overlay modal_closed" id="modal-overlay"></div>
+    <div class="modal modal_closed" id="modal">
+        <header class="modal__header">
+            <a href="#" class="modal__close" id="modal-close" title="Закрыть модальное окно">Закрыть</a>
+            <h2>Правила игры "Сапер"</h2>
+        </header>
+
+        <main class="modal__content">
+            <p>«Сапер» – несложная игра, которая, тем не менее, развивает внимание, память и логику. Основная ее цель —
+                найти и обозначить флажками мины. Нужно быть очень осторожным: как только вы открываете на клетку, под
+                которой спрятан взрывоопасный сюрприз, игра окончена. Сапер ошибается только один раз.</p>
+            <p>Нажмите кнопку - "Начать игру" и запустите игру</p>
+            <p>Игра запущена. Она имеет три уровня сложности: новичок, любитель и профессионал. Изменить сложность можно
+                зайдя в меню «Настройки». Выбираете тот уровень сложности, который вам больше нравится, или который вам
+                по силам.</p>
+            <p>Открывается игровое поле. Под некоторыми клетками спрятаны «мины». Основная задача – вычислить их и не
+                «подорваться». Количество не найденных мин отображено в нижнем левом углу.
+                Чтобы начать игру нужно щелкнуть в произвольном месте на поле (главная задача тут – не нарваться сразу
+                на мину). Откроется некоторый участок поля, на котором появятся цифры. Все эти цифры служат для
+                облегчения поиска установленной мины.
+                Цифра «1» означает, что в расположенных вокруг нее ячейках, находится одна мина. Если оказывается
+                открытой единственная ячейка, значит, под ней она и скрыта. Чтобы случайно на нее не нажать, щелкните по
+                ней правой клавишей мышки. На этой клетке появится флажок.
+                Чтобы отменить выделение щелкните правой клавишей мышки.
+                Вычисляя все возможные места нахождения мин, вы понемногу открываете карту. Внимательно смотрите и
+                находите взрывоопасные сюрпризы: как только попадете на занятую миной клетку, игра окончена.
+            </p>
+        </main>
+    </div>
+
+
+    <div class="modal_closed" id="startGame">
+        <a href="#" class="modal__close" id="closeGame" title="Закрыть модальное окно">Закрыть</a>
+        <!-- <a href="#" class="modal__close" id="closeGame1" title="Закрыть модальное окно">Закрыть</a> -->
+
+        <div class="clock">
+            <span class="timer" id="timer"></span>
+        </div>
+        <div class="field" id="field">
+        </div><br>
+        <button class="reset" id="reset">RESET</button>
+    </div>
+
+
+    <div class="modal-overlay modal_closed" id="modal-overlay1"></div>
+    <div class="modal_closed" id="settingsBtn">
+            <a href="#" class="modal__close" id="close" title="Закрыть модальное окно">Закрыть</a>
+            <span>Выберите уровень сложности игры</span><br>
+            <div class="setButton">
+                <button class="newBtn" id="newbie">НОВИЧОК</button><br>
+                <button class="newBtn" id="amateur">ЛЮБИТЕЛЬ</button><br>
+                <button class="newBtn" id="professional">ПРОФФЕCСИОНАЛ</button><br><br>
+                <hr>
+                <h5>Пользовательские настройки</h5>
+                <input type="text" id="cellWidth"><span>ширина поля</span><br>
+                <input type="text" id="cellHeigt"><span>высота поля</span><br>
+                <input type="text" id="bombs"><span>количество мин</span>
+            </div>
+    </div>
+
+    <div class="modal-overlay modal_closed" id="modal-overlay2"></div>
+    <div class="name nameClosed" id="nameDiv">
+        <a href="#" class="modal__close" id="close2" title="Закрыть модальное окно">Закрыть</a>
+        <span>Введите свое имя</span><br>
+        <input type="text" id="nameInput">
+        <button id="ok">OK</button>
+    </div>
+
+    <div class="modal-overlay modal_closed" id="modal-overlay3"></div>
+    <div class="resalt nameClosed" id="recordId">
+        <button id="newbieButt" class="resultBtn" >НОВИЧОК</button>
+        <button id="amateurButt" class="resultBtn">ЛЮБИТЕЛЬ</button>
+        <button id="professionalButt" class="resultBtn">ПРОФФЕСCИОНАЛ</button>
+        <a href="#" class="modal__close" id="close3" title="Закрыть модальное окно">Закрыть</a>
+        <img src="images/Load.png" alt="" class="img nameClosed" id="img">
+        <div id="recordId1" class="recordId1">
+        </div>
+    </div>
+
+
+    <script defer src="js/MVSstart.js"></script>
+    <script defer src="js/MVCgame.js"></script>
+    <script defer src="js/MVCtableRecord.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+
+    <script>
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyCOkbRoEwOTMblch5oMKlxWsokTTgCb5nk",
+            authDomain: "test-9858b.firebaseapp.com",
+            projectId: "test-9858b",
+            storageBucket: "test-9858b.appspot.com",
+            messagingSenderId: "326307792597",
+            appId: "1:326307792597:web:e3d9be6967d1ba7a50445c"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+    </script>
+
+</body>
+
+</html>
